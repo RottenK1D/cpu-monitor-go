@@ -19,7 +19,6 @@ type AppState struct {
 
 func main() {
 	appState := &AppState{}
-	app := fiber.New()
 
 	go func() {
 		for {
@@ -30,6 +29,8 @@ func main() {
 			time.Sleep(time.Second)
 		}
 	}()
+
+	app := fiber.New()
 
 	app.Get("/", root)
 	app.Get("/api/cpu", appState.getCPU)
@@ -65,7 +66,7 @@ func (s *AppState) realTimeCPU(c *websocket.Conn) {
 
 		err := c.WriteMessage(websocket.TextMessage, payload)
 		if err != nil {
-			log.Printf("Error writing message: %v", err)
+			log.Printf("WebSocket connection closed: %v", err)
 			break
 		}
 		time.Sleep(100 * time.Millisecond)
