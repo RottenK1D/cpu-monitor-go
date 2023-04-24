@@ -11,7 +11,7 @@ A real-time CPU usage monitoring web application built with Go, Fiber, WebSocket
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/your_username/cpu-monitor-go.git
+   git clone https://github.com/RottenK1D/cpu-monitor-go.git
 
 2. Install the required Go packages:
    go get -u github.com/gofiber/fiber/v2
